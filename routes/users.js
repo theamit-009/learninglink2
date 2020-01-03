@@ -151,7 +151,16 @@ router.get('/logout', (request, response) => {
 
 
 router.get('/timesheet',function(request,response){
-  response.render('timesheet');
+  if(request.isAuthenticated()){
+    
+    response.render('timesheet');
+  }
+  else
+  {
+    request.flash('error_msg', 'Please log in first to proceed further !');
+    response.redirect('/users/login');
+  }
+  
 });
 
 router.post('/timesheet',upload.single('profile'), async(req,res)=>{

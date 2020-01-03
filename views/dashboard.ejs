@@ -1,0 +1,48 @@
+<!-- <% include ./navbar %> -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">LLF</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Expense</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/users/timesheet">Timesheet</a>
+      </li>
+      <li class="nav-item dropdown" style="margin-left: 500px;">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          <i class="fas fa-user "></i>&nbsp; <%= name%> </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+          <a class="dropdown-item" href="/users/logout">Log out</a>
+        </div>
+      </li>
+    </ul>
+ 
+  </div>
+</nav>
+
+<div class="row mt-5">
+    <div class="col-md-6 m-auto">
+      <div class="card card-body">
+        <% include ./partials/messages %>
+        
+      <h4>Hello <%= name%> </h4>
+      <h5>Your email is <%= email %></h5> 
+        <p>Welcome to Dashboard !</p>
+
+        <br/>
+        <a href="/users/logout" class="btn btn-secondary">Logout</a>
+      </div>
+    </div>
+  </div>
+ 
+

@@ -8,16 +8,16 @@ module.exports = function(passport) {
         // Match user
               console.log('email inside  passport:'+email);
               console.log('password inside passport  :'+password);
-              pool.query('SELECT sfid,Name,Email,Password__c,Password2__c FROM salesforce.Contact WHERE Email =$1',[email],(error,result)=>{
+              pool.query('SELECT sfid,Name,Email,password2__c FROM salesforce.Contact WHERE Email =$1',[email],(error,result)=>{
                     if(error)
                         throw error;
-                    console.log('result '+JSON.stringify(result.rows));
+                    console.log('result '+JSON.stringify(result.rows[0].password2__c));
                     console.log('result.rows.length : '+result.rows.length);
                  //   return done(null, {email: 'aim.amit9@gmail.com', name: 'Amit'});
                     let numberOfRecords = result.rows.length;
                   //  console.log('numberOfRecords : '+numberOfRecords);
                   //  console.log('result.rows[0].Password2__c : '+result.rows[0].password2__c);
-                  //  console.log('result.rows[0].Password__c : '+result.rows[0].password__c);
+                  //  console.log('result.rows[0].password2__c : '+result.rows[0].password2__c);
                     if(numberOfRecords == 0)
                     {
                         console.log('I block Email is not registered');
@@ -26,7 +26,7 @@ module.exports = function(passport) {
                     else if(numberOfRecords > 0)
                     {
                         console.log('Else block Email is registered');
-                        if(result.rows[0].password__c == password){
+                        if(result.rows[0].password2__c == password){
                             console.log('Hurrah ! Correct Password .');
                             return done(null, {email: result.rows[0].email, name: result.rows[0].name});
                         }

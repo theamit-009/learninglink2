@@ -22,7 +22,7 @@
     "fullcalendar": "^3.10.1",
     "http-errors": "~1.6.3",
     "jpeg-exif": "^1.1.4",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jsforce": "^1.9.2",
     "moment": "^2.24.0",
     "morgan": "~1.9.1",
